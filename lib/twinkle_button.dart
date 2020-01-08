@@ -17,6 +17,7 @@ class TwinkleButton extends StatefulWidget {
   final double buttonWidth;
   final int durationTime;
   final int twinkleTime;
+  final Color highlightColor;
   final GestureTapCallback onclickButtonFunction;
 
   const TwinkleButton({
@@ -24,6 +25,7 @@ class TwinkleButton extends StatefulWidget {
     @required this.buttonTitle,
     @required this.buttonColor,
     @required this.onclickButtonFunction,
+    this.highlightColor = Colors.white,
     this.buttonHeight = 50.0,
     this.buttonWidth = 280.0,
     this.durationTime = 3,
@@ -140,7 +142,7 @@ class _TwinkleButtonState extends State<TwinkleButton>
               opacity: 0.6,
               child: Shimmer.fromColors(
                 baseColor: widget.buttonColor,
-                highlightColor: Colors.white,
+                highlightColor: widget.highlightColor,
                 child: Container(
                   width: widget.buttonWidth,
                   height: widget.buttonHeight,

@@ -3,7 +3,7 @@
 A button plug-in that can flash.
 
 <div align=center>
-    <img src='twinkle_button.gif' width='350'>
+    <img src='https://github.com/EricerYang/twinkle_button/raw/master/twinkle_button.gif' width='350'>
 </div>
 
 ## Installation
@@ -54,6 +54,7 @@ TwinkleButton(
 | buttonColor | null | Button background color, cannot be omitted. |
 | buttonHeight | 50.0 | Height of button. |
 | buttonWidth | 200.0 | Width of button. |
-| durationTime | 3 | Button blink interval. |
-| twinkleTime | 300 | Blink time. |
+| durationTime | 3 | Button blink interval.(seconds) |
+| twinkleTime | 300 | Blink time.(milliseconds) |
+| highlightColor | Colors.white | Flash effect background color. |
 | onclickButtonFunction | null | Events executed by clicking the button, cannot be omitted. |
