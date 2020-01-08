@@ -2,6 +2,26 @@
 
 A button plug-in that can flash.
 
+<div align=right>
+    <img src='example/images/twinkle_button.gif' width='350'>
+</div>
+
+## Installation
+
+Add dependency to pubspec.yaml
+
+```bash
+dependencies:
+  ...
+  twinkle_button: ^lastest_version
+```
+
+Run in your terminal
+
+```bash
+flutter packages get
+```
+
 ## How to use
 
 ```dart
@@ -10,22 +30,23 @@ import 'package:twinkle_button/twinkle_button.dart';
 
 ```dart
 TwinkleButton(
-	buttonTitle: Text(
-		'Subscribe with Free Trial',
-		style: TextStyle(
-			color: Colors.white,
-        	fontWeight: FontWeight.w300,
-        	fontSize: 17.0,
+  buttonTitle: Text(
+    'Subscribe with Free Trial',
+    style: TextStyle(
+      color: Colors.white,
+          fontWeight: FontWeight.w300,
+          fontSize: 17.0,
         ),
     ),
     buttonColor: Color(0xff3dce89),
     onclickButtonFunction: () {
-    	print('hello');
+      print('hello');
     }
 );
 
 ```
 
+## Attribute
 
 | Parameter  | Default   | Description |
 | :------------ |:---------------:| :-----|
