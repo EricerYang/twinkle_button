@@ -3,7 +3,7 @@
 A button plug-in that can flash.
 
 <div align=center>
-    <img src='example/images/twinkle_button.gif' width='350'>
+    <img src='twinkle_button.gif' width='350'>
 </div>
 
 ## Installation
