@@ -26,12 +26,13 @@ TwinkleButton(
 
 ```
 
-Parameter | Default | Description
-|:-----------:||:-----------:|:-----------:|
-buttonTitle  | null | The text on the button, cannot be omitted.
-buttonColor  | null | Button background color, cannot be omitted.
-buttonHeight | 50.0 | Height of button.
-buttonWidth  | 280.0| Width of button.
-durationTime | 3    | Button blink interval.
-twinkleTime  | 300  | Blink time.
-onclickButtonFunction  | null | Events executed by clicking the button, cannot be omitted.
+
+| Parameter  | Default   | Description |
+| :------------ |:---------------:| :-----|
+| buttonTitle | null  | Change this value if you what to put pagination in other placeThe text on the button, cannot be omitted. |
+| buttonColor | null | Button background color, cannot be omitted. |
+| buttonHeight | 50.0 | Height of button. |
+| buttonWidth | 200.0 | Width of button. |
+| durationTime | 3 | Button blink interval. |
+| twinkleTime | 300 | Blink time. |
+| onclickButtonFunction | null | Events executed by clicking the button, cannot be omitted. |
