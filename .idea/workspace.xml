@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="90770f83-0501-447f-a70e-e0f7d04a0908" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/shimmer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shimmer.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/twinkle_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/twinkle_button.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/twinkle_button_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/test/twinkle_button_test.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/twinkle_button.iml" beforeDir="false" afterPath="$PROJECT_DIR$/twinkle_button.iml" afterDir="false" />
-    </list>
+    <list default="true" id="90770f83-0501-447f-a70e-e0f7d04a0908" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,22 +51,22 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1323" height="410" key="GridCell.Tab.0.bottom" timestamp="1618268339098">
+    <state width="1323" height="410" key="GridCell.Tab.0.bottom" timestamp="1618268941383">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="410" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1618268339098" />
-    <state width="1323" height="410" key="GridCell.Tab.0.center" timestamp="1618268339098">
+    <state width="1323" height="410" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1618268941383" />
+    <state width="1323" height="410" key="GridCell.Tab.0.center" timestamp="1618268941383">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="410" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1618268339098" />
-    <state width="1323" height="410" key="GridCell.Tab.0.left" timestamp="1618268339098">
+    <state width="1323" height="410" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1618268941383" />
+    <state width="1323" height="410" key="GridCell.Tab.0.left" timestamp="1618268941383">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="410" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1618268339098" />
-    <state width="1323" height="410" key="GridCell.Tab.0.right" timestamp="1618268339098">
+    <state width="1323" height="410" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1618268941383" />
+    <state width="1323" height="410" key="GridCell.Tab.0.right" timestamp="1618268941383">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="410" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1618268339098" />
+    <state width="1323" height="410" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1618268941383" />
     <state x="263" y="107" key="IDE.errors.dialog" timestamp="1618264939012">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

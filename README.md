@@ -13,7 +13,7 @@ Add dependency to pubspec.yaml
 ```bash
 dependencies:
   ...
-  twinkle_button: ^lastest_version
+  twinkle_button: ^latest_version
 ```
 
 Run in your terminal
