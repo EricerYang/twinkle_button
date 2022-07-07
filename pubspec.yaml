@@ -1,6 +1,6 @@
 name: twinkle_button
 description: A button plug-in that can flash.
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/EricerYang/twinkle_button
 
 environment:
