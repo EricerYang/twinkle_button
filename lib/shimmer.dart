@@ -80,22 +80,7 @@ class Shimmer extends StatefulWidget {
     this.loop = 0,
     this.enabled = true,
   })  : gradient = LinearGradient(
-      begin: Alignment.topLeft,
-      end: Alignment.centerRight,
-      colors: <Color>[
-        baseColor,
-        baseColor,
-        highlightColor,
-        baseColor,
-        baseColor
-      ],
-      stops: const <double>[
-        0.0,
-        0.35,
-        0.5,
-        0.65,
-        1.0
-      ]),
+            begin: Alignment.topLeft, end: Alignment.centerRight, colors: <Color>[baseColor, baseColor, highlightColor, baseColor, baseColor], stops: const <double>[0.0, 0.35, 0.5, 0.65, 1.0]),
         super(key: key);
 
   @override
@@ -104,13 +89,10 @@ class Shimmer extends StatefulWidget {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<Gradient>('gradient', gradient,
-        defaultValue: null));
+    properties.add(DiagnosticsProperty<Gradient>('gradient', gradient, defaultValue: null));
     properties.add(EnumProperty<ShimmerDirection>('direction', direction));
-    properties.add(
-        DiagnosticsProperty<Duration>('period', period, defaultValue: null));
-    properties
-        .add(DiagnosticsProperty<bool>('enabled', enabled, defaultValue: null));
+    properties.add(DiagnosticsProperty<Duration>('period', period, defaultValue: null));
+    properties.add(DiagnosticsProperty<bool>('enabled', enabled, defaultValue: null));
   }
 }
 
@@ -207,8 +189,7 @@ class _ShimmerFilter extends RenderProxyBox {
   double? _percent;
   Rect? _rect;
 
-  _ShimmerFilter(this._percent, this._direction, this._gradient, this.enabled)
-      : _gradientPaint = Paint()..blendMode = BlendMode.srcIn;
+  _ShimmerFilter(this._percent, this._direction, this._gradient, this.enabled) : _gradientPaint = Paint()..blendMode = BlendMode.srcIn;
 
   @override
   bool get alwaysNeedsCompositing => child != null;
