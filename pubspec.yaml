@@ -1,11 +1,10 @@
 name: twinkle_button
 description: A button plug-in that can flash.
-version: 0.0.3
-author: EricerYang <y_nan98@163.com>
+version: 0.0.5
 homepage: https://github.com/EricerYang/twinkle_button
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
   flutter:

@@ -56,9 +56,9 @@ class Shimmer extends StatefulWidget {
   final bool enabled;
 
   const Shimmer({
-    Key key,
-    @required this.child,
-    @required this.gradient,
+    Key? key,
+    required this.child,
+    required this.gradient,
     this.direction = ShimmerDirection.ltr,
     this.period = const Duration(milliseconds: 1500),
     this.loop = 0,
@@ -71,31 +71,16 @@ class Shimmer extends StatefulWidget {
   /// `highlightColor`.
   ///
   Shimmer.fromColors({
-    Key key,
-    @required this.child,
-    @required Color baseColor,
-    @required Color highlightColor,
+    Key? key,
+    required this.child,
+    required Color baseColor,
+    required Color highlightColor,
     this.period = const Duration(milliseconds: 1500),
     this.direction = ShimmerDirection.ltr,
     this.loop = 0,
     this.enabled = true,
   })  : gradient = LinearGradient(
-      begin: Alignment.topLeft,
-      end: Alignment.centerRight,
-      colors: <Color>[
-        baseColor,
-        baseColor,
-        highlightColor,
-        baseColor,
-        baseColor
-      ],
-      stops: const <double>[
-        0.0,
-        0.35,
-        0.5,
-        0.65,
-        1.0
-      ]),
+            begin: Alignment.topLeft, end: Alignment.centerRight, colors: <Color>[baseColor, baseColor, highlightColor, baseColor, baseColor], stops: const <double>[0.0, 0.35, 0.5, 0.65, 1.0]),
         super(key: key);
 
   @override
@@ -104,19 +89,16 @@ class Shimmer extends StatefulWidget {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<Gradient>('gradient', gradient,
-        defaultValue: null));
+    properties.add(DiagnosticsProperty<Gradient>('gradient', gradient, defaultValue: null));
     properties.add(EnumProperty<ShimmerDirection>('direction', direction));
-    properties.add(
-        DiagnosticsProperty<Duration>('period', period, defaultValue: null));
-    properties
-        .add(DiagnosticsProperty<bool>('enabled', enabled, defaultValue: null));
+    properties.add(DiagnosticsProperty<Duration>('period', period, defaultValue: null));
+    properties.add(DiagnosticsProperty<bool>('enabled', enabled, defaultValue: null));
   }
 }
 
 class _ShimmerState extends State<Shimmer> with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-  int _count;
+  late AnimationController _controller;
+  int? _count;
 
   @override
   void initState() {
@@ -127,10 +109,10 @@ class _ShimmerState extends State<Shimmer> with SingleTickerProviderStateMixin {
         if (status != AnimationStatus.completed) {
           return;
         }
-        _count++;
+        _count = _count! + 1;
         if (widget.loop <= 0) {
           _controller.repeat();
-        } else if (_count < widget.loop) {
+        } else if (_count! < widget.loop) {
           _controller.forward(from: 0.0);
         }
       });
@@ -154,7 +136,7 @@ class _ShimmerState extends State<Shimmer> with SingleTickerProviderStateMixin {
     return AnimatedBuilder(
       animation: _controller,
       child: widget.child,
-      builder: (BuildContext context, Widget child) => _Shimmer(
+      builder: (BuildContext context, Widget? child) => _Shimmer(
         child: child,
         direction: widget.direction,
         gradient: widget.gradient,
@@ -173,13 +155,13 @@ class _ShimmerState extends State<Shimmer> with SingleTickerProviderStateMixin {
 
 @immutable
 class _Shimmer extends SingleChildRenderObjectWidget {
-  final double percent;
-  final ShimmerDirection direction;
-  final Gradient gradient;
-  final bool enabled;
+  final double? percent;
+  final ShimmerDirection? direction;
+  final Gradient? gradient;
+  final bool? enabled;
 
   const _Shimmer({
-    Widget child,
+    Widget? child,
     this.percent,
     this.direction,
     this.gradient,
@@ -201,19 +183,18 @@ class _Shimmer extends SingleChildRenderObjectWidget {
 class _ShimmerFilter extends RenderProxyBox {
   final Paint _clearPaint = Paint();
   final Paint _gradientPaint;
-  final Gradient _gradient;
-  final ShimmerDirection _direction;
-  bool enabled;
-  double _percent;
-  Rect _rect;
+  final Gradient? _gradient;
+  final ShimmerDirection? _direction;
+  bool? enabled;
+  double? _percent;
+  Rect? _rect;
 
-  _ShimmerFilter(this._percent, this._direction, this._gradient, this.enabled)
-      : _gradientPaint = Paint()..blendMode = BlendMode.srcIn;
+  _ShimmerFilter(this._percent, this._direction, this._gradient, this.enabled) : _gradientPaint = Paint()..blendMode = BlendMode.srcIn;
 
   @override
   bool get alwaysNeedsCompositing => child != null;
 
-  set percent(double newValue) {
+  set percent(double? newValue) {
     if (newValue == _percent) {
       return;
     }
@@ -228,32 +209,32 @@ class _ShimmerFilter extends RenderProxyBox {
     }
     assert(needsCompositing);
 
-    context.canvas.saveLayer(offset & child.size, _clearPaint);
-    context.paintChild(child, offset);
+    context.canvas.saveLayer(offset & child!.size, _clearPaint);
+    context.paintChild(child!, offset);
 
-    final double width = child.size.width;
-    final double height = child.size.height;
+    final double width = child!.size.width;
+    final double height = child!.size.height;
     Rect rect;
     double dx, dy;
     if (_direction == ShimmerDirection.rtl) {
-      dx = _offset(width, -width, _percent);
+      dx = _offset(width, -width, _percent!);
       dy = 0.0;
       rect = Rect.fromLTWH(offset.dx - width, offset.dy, 3 * width, height);
     } else if (_direction == ShimmerDirection.ttb) {
       dx = 0.0;
-      dy = _offset(-height, height, _percent);
+      dy = _offset(-height, height, _percent!);
       rect = Rect.fromLTWH(offset.dx, offset.dy - height, width, 3 * height);
     } else if (_direction == ShimmerDirection.btt) {
       dx = 0.0;
-      dy = _offset(height, -height, _percent);
+      dy = _offset(height, -height, _percent!);
       rect = Rect.fromLTWH(offset.dx, offset.dy - height, width, 3 * height);
     } else {
-      dx = _offset(-width, width, _percent);
+      dx = _offset(-width, width, _percent!);
       dy = 0.0;
       rect = Rect.fromLTWH(offset.dx - width, offset.dy, 3 * width, height);
     }
     if (_rect != rect) {
-      _gradientPaint.shader = _gradient.createShader(rect);
+      _gradientPaint.shader = _gradient!.createShader(rect);
       _rect = rect;
     }
     context.canvas.translate(dx, dy);

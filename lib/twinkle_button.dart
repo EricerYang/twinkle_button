@@ -21,10 +21,10 @@ class TwinkleButton extends StatefulWidget {
   final GestureTapCallback onclickButtonFunction;
 
   const TwinkleButton({
-    Key key,
-    @required this.buttonTitle,
-    @required this.buttonColor,
-    @required this.onclickButtonFunction,
+    Key? key,
+    required this.buttonTitle,
+    required this.buttonColor,
+    required this.onclickButtonFunction,
     this.highlightColor = Colors.white,
     this.buttonHeight = 50.0,
     this.buttonWidth = 280.0,
@@ -36,21 +36,21 @@ class TwinkleButton extends StatefulWidget {
   _TwinkleButtonState createState() => _TwinkleButtonState();
 }
 
-class _TwinkleButtonState extends State<TwinkleButton>
-    with SingleTickerProviderStateMixin {
+class _TwinkleButtonState extends State<TwinkleButton> with SingleTickerProviderStateMixin {
+  late double _scale;
+  late AnimationController _controller;
+  Timer? _timer;
+  int? _twinkleCount;
 
-  double _scale;
-  AnimationController _controller;
-  Timer _timer;
-  int _twinkleCount;
-
-  void _loopAnimation(int twinkleCount) {
-    if(twinkleCount == 1) {
+  void _loopAnimation(int? twinkleCount) {
+    if (twinkleCount == 1) {
       setState(() {
-        _timer = Timer(Duration(seconds: widget.durationTime), _twinkleForward,);
+        _timer = Timer(
+          Duration(seconds: widget.durationTime),
+          _twinkleForward,
+        );
       });
-    }
-    else {
+    } else {
       _twinkleForward();
     }
   }
@@ -64,19 +64,18 @@ class _TwinkleButtonState extends State<TwinkleButton>
       duration: Duration(milliseconds: widget.twinkleTime),
       lowerBound: 0.0,
       upperBound: 0.1,
-    )..addListener(() {
-      setState(() {});
-    })
+    )
+      ..addListener(() {
+        setState(() {});
+      })
       ..addStatusListener((listener) {
         if (listener == AnimationStatus.completed) {
           _controller.reverse();
-        }
-        else if (listener == AnimationStatus.dismissed) {
-          if(_twinkleCount == 1) {
+        } else if (listener == AnimationStatus.dismissed) {
+          if (_twinkleCount == 1) {
             _twinkleCount = 0;
-          }
-          else {
-            _twinkleCount++;
+          } else {
+            _twinkleCount = _twinkleCount! + 1;
           }
           _loopAnimation(_twinkleCount);
         }
@@ -100,7 +99,7 @@ class _TwinkleButtonState extends State<TwinkleButton>
     _scale = 1 + _controller.value;
 
     return GestureDetector(
-      onTap: widget.onclickButtonFunction ?? () {},
+      onTap: widget.onclickButtonFunction,
       child: Transform.scale(
         scale: _scale,
         child: _twinkleButton,
@@ -109,64 +108,66 @@ class _TwinkleButtonState extends State<TwinkleButton>
   }
 
   Widget get _twinkleButton => Container(
-    child: Center(
-      child: Stack(
-        children: <Widget>[
-          Container(
-            width: widget.buttonWidth,
-            height: widget.buttonHeight,
-            child: RaisedButton(
-              onPressed: () async {
-                return null;
-              },
-              padding: EdgeInsets.only(
-                top: 10.0,
-                bottom: 10.0,
-                left: 15.0,
-                right: 15.0,
+        child: Center(
+          child: Stack(
+            children: <Widget>[
+              Container(
+                width: widget.buttonWidth,
+                height: widget.buttonHeight,
+                child: ElevatedButton(
+                  onPressed: () async {
+                    return null;
+                  },
+                  style: ElevatedButton.styleFrom(
+                    textStyle: TextStyle(color: Colors.white),
+                    padding: EdgeInsets.only(
+                      top: 10.0,
+                      bottom: 10.0,
+                      left: 15.0,
+                      right: 15.0,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                    backgroundColor: widget.buttonColor,
+                  ),
+                  child: null,
+                ),
               ),
-              textColor: Colors.white,
-              color: widget.buttonColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30.0),
-              ),
-            ),
-          ),
-          Container(
-            width: widget.buttonWidth,
-            height: widget.buttonHeight,
-            decoration: new BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(25.0)),
-            ),
-            child: Opacity(
-              opacity: 0.6,
-              child: Shimmer.fromColors(
-                baseColor: widget.buttonColor,
-                highlightColor: widget.highlightColor,
-                child: Container(
-                  width: widget.buttonWidth,
-                  height: widget.buttonHeight,
-                  decoration: new BoxDecoration(
-                    color: widget.buttonColor,
-                    borderRadius: BorderRadius.all(Radius.circular(25.0)),
+              Container(
+                width: widget.buttonWidth,
+                height: widget.buttonHeight,
+                decoration: new BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                ),
+                child: Opacity(
+                  opacity: 0.6,
+                  child: Shimmer.fromColors(
+                    baseColor: widget.buttonColor,
+                    highlightColor: widget.highlightColor,
+                    child: Container(
+                      width: widget.buttonWidth,
+                      height: widget.buttonHeight,
+                      decoration: new BoxDecoration(
+                        color: widget.buttonColor,
+                        borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                      ),
+                    ),
                   ),
                 ),
               ),
-            ),
+              Container(
+                width: widget.buttonWidth,
+                height: widget.buttonHeight,
+                decoration: new BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                ),
+                child: Center(
+                  child: widget.buttonTitle,
+                ),
+              ),
+            ],
           ),
-          Container(
-            width: widget.buttonWidth,
-            height: widget.buttonHeight,
-            decoration: new BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(25.0)),
-            ),
-            child: Center(
-              child: widget.buttonTitle,
-            ),
-          ),
-        ],
-      ),
-    ),
-  );
-
+        ),
+      );
 }
